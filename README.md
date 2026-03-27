@@ -23,5 +23,5 @@ npm run dev
 
 ## Dokumentacja
 
-Dokumentacja projektu znajduje się w pliku [`topic-selection.md`](./topic-selection.md)
+Dokumentacja projektu znajduje się w pliku [`topic-selection.md`](docs/topic-selection.md)
 
