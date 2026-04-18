@@ -5,6 +5,7 @@ function MovieList({ token, role, onLogout }) {
   const [movies, setMovies] = useState([]);
   const [userMovies, setUserMovies] = useState([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
   const [showAdmin, setShowAdmin] = useState(false);
 
   const headers = { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' };
@@ -16,6 +17,8 @@ function MovieList({ token, role, onLogout }) {
       setMovies(data);
     } catch (err) {
       setError('Błąd pobierania filmów');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -68,6 +71,8 @@ function MovieList({ token, role, onLogout }) {
       setError('Błąd usuwania');
     }
   };
+
+  if (loading) return <p style={{ textAlign: 'center', marginTop: 100 }}>Ładowanie...</p>;
 
   return (
     <div style={{ maxWidth: 900, margin: '20px auto', padding: 20 }}>
